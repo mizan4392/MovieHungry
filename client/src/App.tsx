@@ -1,9 +1,8 @@
-import React from "react";
-
 import "./App.css";
-let hello = "";
+import Home from "./pages/home/Home.page";
+
 function App() {
-  return <div className="App">Movie hungry</div>;
+  return <Home />;
 }
 
 export default App;
