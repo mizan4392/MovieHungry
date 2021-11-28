@@ -1,8 +1,7 @@
 import React, { ReactElement, useState } from "react";
-import "./NavBar.css";
-import NavLogo from "../../assets/logo.png";
+import "./NavBar.scss";
 import { ArrowDropDown, Notifications, Search } from "@mui/icons-material";
-import { Button, Popover, Typography } from "@mui/material";
+import { Button, Popover } from "@mui/material";
 
 interface Props {}
 
@@ -10,6 +9,12 @@ export default function NavBar({}: Props): ReactElement {
   const [anchorEl, setAnchorEl] = React.useState<HTMLButtonElement | null>(
     null
   );
+  const [isScrolled, setIsScrolled] = useState(false);
+
+  window.onscroll = () => {
+    setIsScrolled(window.pageYOffset === 0 ? false : true);
+    return () => (window.onscroll = null);
+  };
 
   const handleClick = (event: React.MouseEvent<HTMLButtonElement>) => {
     setAnchorEl(event.currentTarget);
@@ -22,10 +27,10 @@ export default function NavBar({}: Props): ReactElement {
   const open = Boolean(anchorEl);
   const id = open ? "simple-popover" : undefined;
   return (
-    <div className="navBar">
+    <div className={isScrolled ? "navbar scrolled" : "navbar"}>
       <div className="container">
         <div className="left">
-          <img src={NavLogo} alt="movie hungry" />
+          <h2 className="brand">Movie Hungry </h2>
           <span>Homepage</span>
           <span>Series</span>
           <span>Movies</span>
