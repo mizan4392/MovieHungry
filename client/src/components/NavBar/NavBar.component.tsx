@@ -9,6 +9,7 @@ import {
   useMantineTheme,
   Input,
   Button,
+  Avatar,
 } from "@mantine/core";
 import { IconAt, IconSearch } from "@tabler/icons";
 
@@ -154,7 +155,7 @@ export default function NavBar({}: Props) {
             </button>
           </div>
           <div>
-            <button className="text-white">signup</button>
+            <Avatar radius="xl" />
           </div>
         </div>
       </div>
