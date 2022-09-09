@@ -11,7 +11,6 @@ export default function Slider({}: Props) {
   const autoplay = useRef(Autoplay({ delay: 2000 }));
   return (
     <Carousel
-      sx={{ width: "100vw" }}
       mx="auto"
       withIndicators
       height={600}
